@@ -1,0 +1,35 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "trp-colombia-welcome",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-18",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "run_worker_first": ["/go", "/health", "/telegram/*"]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "CONFIG"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "trp-colombia-clicks",
+      "migrations_dir": "./migrations"
+    }
+  ],
+  "vars": {
+    "ENVIRONMENT": "production",
+    "TELEGRAM_BOT_USERNAME": "Top901104_bot"
+  },
+  "triggers": {
+    "crons": ["0 * * * *"]
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}
