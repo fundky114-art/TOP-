@@ -3,4 +3,4 @@
 TELEGRAM_BOT_TOKEN=replace-with-local-test-token
 TELEGRAM_WEBHOOK_SECRET=replace-with-a-long-random-secret
 TELEGRAM_ADMIN_CHAT_ID=replace-with-your-numeric-chat-id
-
+FALLBACK_WHATSAPP_URL=https://chat.whatsapp.com/replace-with-current-group-code
