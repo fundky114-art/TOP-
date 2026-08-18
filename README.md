@@ -54,6 +54,7 @@ npx wrangler d1 migrations apply DB --remote
 npx wrangler secret put TELEGRAM_BOT_TOKEN
 npx wrangler secret put TELEGRAM_WEBHOOK_SECRET
 npx wrangler secret put TELEGRAM_ADMIN_CHAT_ID
+npx wrangler secret put FALLBACK_WHATSAPP_URL
 ```
 
 Validate and deploy:
@@ -77,5 +78,5 @@ Do not commit tokens, chat IDs, `.dev.vars`, or `.env` files.
 
 - The hourly cron runs at minute `0` in UTC and reports the previous complete hour.
 - Click records exclude IP addresses and are retained for 90 days.
-- If the KV link is missing or malformed, `/go` falls back to `DEFAULT_WHATSAPP_URL`.
+- If the KV link is missing or malformed, `/go` falls back to the secret `FALLBACK_WHATSAPP_URL`.
 - The Worker can repair malformed KV configuration, but it cannot create a new WhatsApp invite if WhatsApp has revoked the group link. It reports the configured link so an administrator can replace it with `/setgroup`.
