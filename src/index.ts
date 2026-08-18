@@ -305,12 +305,12 @@ async function resolveActiveLink(env: Env): Promise<LinkState> {
     return { url: stored, source: "kv", repaired: false };
   }
 
-  if (!isWhatsAppInviteUrl(env.DEFAULT_WHATSAPP_URL)) {
+  if (!isWhatsAppInviteUrl(env.FALLBACK_WHATSAPP_URL)) {
     throw new HttpError(503, "No valid WhatsApp group link is configured");
   }
 
   return {
-    url: env.DEFAULT_WHATSAPP_URL,
+    url: env.FALLBACK_WHATSAPP_URL,
     source: "fallback",
     repaired: true,
   };
